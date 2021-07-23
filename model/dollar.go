@@ -11,9 +11,9 @@ func NewDollar(amount int) *Dollar {
 }
 
 func (this *Dollar) Times(multiplier int) {
-	this.amount = this.amount * multiplier
+	this.amount *= multiplier
 }
 
 func (this Dollar) Amount() int {
-	return 10
+	return this.amount
 }
