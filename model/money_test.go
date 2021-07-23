@@ -10,13 +10,13 @@ func TestMoneyMultiplication(t *testing.T) {
 
 		product := five.Times(3)
 
-		if product.Amount() != 15 {
-			t.Errorf("expected: 15, result:%v", product.Amount())
+		if !product.Equals(NewDollar(15)) {
+			t.Errorf("expected: true, result: false")
 		}
 
 		product = five.Times(2)
-		if product.Amount() != 10 {
-			t.Errorf("expected: 10, result: %v", product.Amount())
+		if !product.Equals(NewDollar(10)) {
+			t.Errorf("expected: true, result: false")
 		}
 	})
 }
