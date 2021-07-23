@@ -17,3 +17,7 @@ func (this *Dollar) Times(multiplier int) *Dollar {
 func (this Dollar) Amount() int {
 	return this.amount
 }
+
+func (this Dollar) Equals(obj *Dollar) bool {
+	return this.amount == obj.Amount()
+}
