@@ -39,7 +39,7 @@ func TestEquality(t *testing.T) {
 }
 
 func TestFrancMultiplication(t *testing.T) {
-	t.Run("掛け算の結果が正しいこと", func(t *testing.T) {
+	t.Run("フランの掛け算の結果が正しいこと", func(t *testing.T) {
 		five := NewFranc(5)
 
 		if !five.Times(2).Equals(NewFranc(10)) {
