@@ -1,12 +1,15 @@
 package model
 
+type IFranc interface {
+	IMoney
+}
 type Franc struct {
-	amount int
+	Money
 }
 
 func NewFranc(amount int) *Franc {
 	return &Franc{
-		amount: amount,
+		Money{amount: amount},
 	}
 }
 
