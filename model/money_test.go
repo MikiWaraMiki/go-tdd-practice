@@ -1,6 +1,9 @@
 package model
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestMoneyMultiplication(t *testing.T) {
 	five := NewDollar(5)
@@ -20,7 +23,7 @@ func TestMoneyMultiplication(t *testing.T) {
 func TestEquality(t *testing.T) {
 	five := NewDollar(5)
 
-	result := five == NewDollar(5)
+	result := reflect.DeepEqual(five, NewDollar(5))
 	if !result {
 		t.Errorf("expected true, result: false")
 	}
