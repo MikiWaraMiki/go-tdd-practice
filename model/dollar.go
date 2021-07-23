@@ -1,12 +1,12 @@
 package model
 
 type Dollar struct {
-	amount int
+	Money
 }
 
 func NewDollar(amount int) *Dollar {
 	return &Dollar{
-		amount: amount,
+		Money{amount: amount},
 	}
 }
 
