@@ -8,14 +8,11 @@ func TestMoneyMultiplication(t *testing.T) {
 	t.Run("掛け算の結果が正しいこと", func(t *testing.T) {
 		five := NewDollar(5)
 
-		product := five.Times(3)
-
-		if !product.Equals(NewDollar(15)) {
+		if !five.Times(3).Equals(NewDollar(15)) {
 			t.Errorf("expected: true, result: false")
 		}
 
-		product = five.Times(2)
-		if !product.Equals(NewDollar(10)) {
+		if !five.Times(2).Equals(NewDollar(10)) {
 			t.Errorf("expected: true, result: false")
 		}
 	})
