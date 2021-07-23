@@ -23,8 +23,11 @@ func TestMoneyMultiplication(t *testing.T) {
 func TestEquality(t *testing.T) {
 	five := NewDollar(5)
 
-	result := reflect.DeepEqual(five, NewDollar(5))
-	if !result {
+	if !reflect.DeepEqual(five, NewDollar(5)) {
 		t.Errorf("expected true, result: false")
+	}
+
+	if reflect.DeepEqual(five, NewDollar(6)) {
+		t.Error("expected: false, result: true")
 	}
 }
