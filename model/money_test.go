@@ -6,7 +6,7 @@ import (
 
 func TestMoneyMultiplication(t *testing.T) {
 	t.Run("ドルの掛け算の結果が正しいこと", func(t *testing.T) {
-		var five IDollar = GenerateDollar(5)
+		var five IMoney = GenerateDollar(5)
 		if !five.Times(3).Equals(GenerateDollar(15)) {
 			t.Errorf("expected: true, result: false")
 		}
