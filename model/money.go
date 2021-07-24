@@ -25,7 +25,7 @@ func GenerateFranc(amount int) *Franc {
 	return &Franc{
 		&Money{
 			amount:   amount,
-			currency: "Franc",
+			currency: "CHF",
 		},
 	}
 }

@@ -66,4 +66,11 @@ func TestCurrency(t *testing.T) {
 			t.Errorf("expected: USD, result: %v", result)
 		}
 	})
+	t.Run("フランの場合はCHFであること", func(t *testing.T) {
+		franc := GenerateFranc(5)
+
+		if result := franc.GetCurrency(); result != "CHF" {
+			t.Errorf("expected: CHF, result: %v", result)
+		}
+	})
 }
