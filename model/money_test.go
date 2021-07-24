@@ -58,3 +58,12 @@ func TestFrancMultiplication(t *testing.T) {
 		}
 	})
 }
+
+func TestCurrency(t *testing.T) {
+	t.Run("ドルの場合はUSDであること", func(t *testing.T) {
+		dollar := GenerateDollar(5)
+		if result := dollar.GetCurrency(); result != "USD" {
+			t.Errorf("expected: USD, result: %v", result)
+		}
+	})
+}

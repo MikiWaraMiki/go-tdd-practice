@@ -1,7 +1,5 @@
 package model
 
-import "fmt"
-
 type IMoney interface {
 	Equals(money IMoney) bool
 	GetAmount() int
@@ -18,7 +16,7 @@ func GenerateDollar(amount int) *Dollar {
 	return &Dollar{
 		&Money{
 			amount:   amount,
-			currency: "Dollar",
+			currency: "USD",
 		},
 	}
 }
@@ -33,7 +31,6 @@ func GenerateFranc(amount int) *Franc {
 }
 
 func (this Money) Equals(obj IMoney) bool {
-	fmt.Printf("this: %v, obj: %v\n", this.GetCurrency(), obj.GetCurrency())
 	if this.GetCurrency() != obj.GetCurrency() {
 		return false
 	}
