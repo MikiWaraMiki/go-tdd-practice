@@ -10,14 +10,13 @@ type Franc struct {
 
 func NewFranc(amount int) *Franc {
 	return &Franc{
-		&Money{amount: amount},
+		&Money{
+			amount: amount,
+			name:   "Franc",
+		},
 	}
 }
 
 func (this Franc) Times(multiplier int) *Franc {
 	return NewFranc(this.amount * multiplier)
-}
-
-func (this Franc) GetName() string {
-	return "Franc"
 }

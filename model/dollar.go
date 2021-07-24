@@ -10,7 +10,10 @@ type Dollar struct {
 
 func NewDollar(amount int) *Dollar {
 	return &Dollar{
-		&Money{amount: amount},
+		&Money{
+			amount: amount,
+			name:   "Dollar",
+		},
 	}
 }
 
