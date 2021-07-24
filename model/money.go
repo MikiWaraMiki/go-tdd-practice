@@ -1,5 +1,10 @@
 package model
 
+import "fmt"
+
+type Stringify interface {
+	ToString() string
+}
 type IMoney interface {
 	Equals(money IMoney) bool
 	GetAmount() int
@@ -50,4 +55,8 @@ func (this Money) Times(multiplier int) *Money {
 		amount:   this.amount * multiplier,
 		currency: this.currency,
 	}
+}
+
+func (this Money) ToString() string {
+	return fmt.Sprintf("%v %v", this.amount, this.currency)
 }
