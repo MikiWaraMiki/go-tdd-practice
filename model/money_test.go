@@ -35,6 +35,14 @@ func TestEquality(t *testing.T) {
 		}
 	})
 
+	t.Run("ドルとフランの比較が正しいこと", func(t *testing.T) {
+		var dollar IDollar = NewDollar(5)
+		var franc IFranc = NewFranc(5)
+
+		if dollar.Equals(franc) {
+			t.Error("expected: false, result: true")
+		}
+	})
 }
 
 func TestFrancMultiplication(t *testing.T) {
