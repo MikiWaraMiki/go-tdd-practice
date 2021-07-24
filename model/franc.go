@@ -6,12 +6,3 @@ type IFranc interface {
 type Franc struct {
 	*Money
 }
-
-func NewFranc(amount int) *Franc {
-	return &Franc{
-		&Money{
-			amount:   amount,
-			currency: "Franc",
-		},
-	}
-}
