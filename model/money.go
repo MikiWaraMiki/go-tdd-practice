@@ -10,6 +10,7 @@ type IMoney interface {
 	GetAmount() int
 	GetCurrency() string
 	Times(multiplier int) *Money
+	Plus(money IMoney) *Money
 }
 
 type Money struct {
@@ -52,6 +53,13 @@ func (this Money) GetCurrency() string {
 func (this Money) Times(multiplier int) *Money {
 	return &Money{
 		amount:   this.amount * multiplier,
+		currency: this.currency,
+	}
+}
+
+func (this Money) Plus(money IMoney) *Money {
+	return &Money{
+		amount:   this.amount + money.GetAmount(),
 		currency: this.currency,
 	}
 }
