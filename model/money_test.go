@@ -35,11 +35,18 @@ func TestEquality(t *testing.T) {
 		}
 	})
 
-	t.Run("ドルとフランの比較が正しいこと", func(t *testing.T) {
+	t.Run("通貨単位が異なる場合は等価と判定されないこと", func(t *testing.T) {
 		var dollar IMoney = GenerateDollar(5)
 		var franc IMoney = GenerateFranc(5)
 
 		if dollar.Equals(franc) {
+			t.Error("expected: false, result: true")
+		}
+	})
+	t.Run("nilが渡された場合は等価と判定されないこと", func(t *testing.T) {
+		var dollar IMoney = GenerateDollar(5)
+
+		if dollar.Equals(nil) {
 			t.Error("expected: false, result: true")
 		}
 	})

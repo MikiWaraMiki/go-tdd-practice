@@ -32,6 +32,9 @@ func GenerateFranc(amount int) *Money {
 }
 
 func (this Money) Equals(obj IMoney) bool {
+	if obj == nil {
+		return false
+	}
 	if this.GetCurrency() != obj.GetCurrency() {
 		return false
 	}
