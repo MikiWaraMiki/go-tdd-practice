@@ -17,3 +17,7 @@ func NewDollar(amount int) *Dollar {
 func (this Dollar) Times(multiplier int) *Dollar {
 	return NewDollar(this.amount * multiplier)
 }
+
+func (this Dollar) GetName() string {
+	return "Dollar"
+}

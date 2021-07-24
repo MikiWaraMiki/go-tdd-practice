@@ -14,6 +14,10 @@ func NewFranc(amount int) *Franc {
 	}
 }
 
-func (this *Franc) Times(multiplier int) *Franc {
+func (this Franc) Times(multiplier int) *Franc {
 	return NewFranc(this.amount * multiplier)
+}
+
+func (this Franc) GetName() string {
+	return "Franc"
 }

@@ -16,3 +16,7 @@ func (this Money) Equals(obj IMoney) bool {
 func (this Money) GetAmount() int {
 	return this.amount
 }
+
+func (this Money) GetName() string {
+	return "Money"
+}
