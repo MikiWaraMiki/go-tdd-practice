@@ -67,3 +67,14 @@ func TestCurrency(t *testing.T) {
 		}
 	})
 }
+
+func TestSimpleAddition(t *testing.T) {
+	t.Run("同じ通貨単位の足し算の結果が正しいこと", func(t *testing.T) {
+		sum := GenerateDollar(5).Plus(GenerateDollar(5))
+		expected := 10
+
+		if result := sum.GetAmount(); result != expected {
+			t.Errorf("expected: %v, result: %v", expected, result)
+		}
+	})
+}
