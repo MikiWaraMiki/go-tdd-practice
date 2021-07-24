@@ -2,6 +2,7 @@ package model
 
 type IFranc interface {
 	IMoney
+	Times(multiplier int) *Franc
 }
 type Franc struct {
 	Money

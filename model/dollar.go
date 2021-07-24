@@ -2,7 +2,7 @@ package model
 
 type IDollar interface {
 	IMoney
-	Times(multiplier int) Dollar
+	Times(multiplier int) *Dollar
 }
 type Dollar struct {
 	*Money
