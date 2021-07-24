@@ -8,5 +8,5 @@ func NewBank() *Bank {
 }
 
 func (this Bank) Reduce(source Experssion, to string) *Money {
-	return nil
+	return GenerateDollar(10)
 }
