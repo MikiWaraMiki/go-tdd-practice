@@ -5,12 +5,12 @@ type IFranc interface {
 	Times(multiplier int) *Franc
 }
 type Franc struct {
-	Money
+	*Money
 }
 
 func NewFranc(amount int) *Franc {
 	return &Franc{
-		Money{amount: amount},
+		&Money{amount: amount},
 	}
 }
 
