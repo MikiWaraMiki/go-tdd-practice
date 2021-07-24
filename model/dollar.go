@@ -11,8 +11,8 @@ type Dollar struct {
 func NewDollar(amount int) *Dollar {
 	return &Dollar{
 		&Money{
-			amount: amount,
-			name:   "Dollar",
+			amount:   amount,
+			currency: "Dollar",
 		},
 	}
 }

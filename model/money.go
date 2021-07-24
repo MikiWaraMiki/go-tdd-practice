@@ -5,17 +5,17 @@ import "fmt"
 type IMoney interface {
 	Equals(money IMoney) bool
 	GetAmount() int
-	GetName() string
+	GetCurrency() string
 }
 
 type Money struct {
-	amount int
-	name   string
+	amount   int
+	currency string
 }
 
 func (this Money) Equals(obj IMoney) bool {
-	fmt.Printf("this: %v, obj: %v\n", this.GetName(), obj.GetName())
-	if this.GetName() != obj.GetName() {
+	fmt.Printf("this: %v, obj: %v\n", this.GetCurrency(), obj.GetCurrency())
+	if this.GetCurrency() != obj.GetCurrency() {
 		return false
 	}
 	return this.GetAmount() == obj.GetAmount()
@@ -25,6 +25,6 @@ func (this Money) GetAmount() int {
 	return this.amount
 }
 
-func (this Money) GetName() string {
-	return this.name
+func (this Money) GetCurrency() string {
+	return this.currency
 }

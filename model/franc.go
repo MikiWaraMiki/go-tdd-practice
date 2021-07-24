@@ -11,8 +11,8 @@ type Franc struct {
 func NewFranc(amount int) *Franc {
 	return &Franc{
 		&Money{
-			amount: amount,
-			name:   "Franc",
+			amount:   amount,
+			currency: "Franc",
 		},
 	}
 }
