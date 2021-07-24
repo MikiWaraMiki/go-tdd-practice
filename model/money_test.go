@@ -37,7 +37,7 @@ func TestEquality(t *testing.T) {
 
 	t.Run("ドルとフランの比較が正しいこと", func(t *testing.T) {
 		var dollar IDollar = GenerateDollar(5)
-		var franc IFranc = NewFranc(5)
+		var franc IFranc = GenerateFranc(5)
 
 		if dollar.Equals(franc) {
 			t.Error("expected: false, result: true")
@@ -47,13 +47,13 @@ func TestEquality(t *testing.T) {
 
 func TestFrancMultiplication(t *testing.T) {
 	t.Run("フランの掛け算の結果が正しいこと", func(t *testing.T) {
-		five := NewFranc(5)
+		five := GenerateFranc(5)
 
-		if !five.Times(2).Equals(NewFranc(10)) {
+		if !five.Times(2).Equals(GenerateFranc(10)) {
 			t.Error("5.times(2) == 10, expected true, result: false")
 		}
 
-		if !five.Times(3).Equals(NewFranc(15)) {
+		if !five.Times(3).Equals(GenerateFranc(15)) {
 			t.Error("5.times(3) == 15, expected: true, result: false")
 		}
 	})

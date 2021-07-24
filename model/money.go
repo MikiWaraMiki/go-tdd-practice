@@ -23,6 +23,15 @@ func GenerateDollar(amount int) *Dollar {
 	}
 }
 
+func GenerateFranc(amount int) *Franc {
+	return &Franc{
+		&Money{
+			amount:   amount,
+			currency: "Franc",
+		},
+	}
+}
+
 func (this Money) Equals(obj IMoney) bool {
 	fmt.Printf("this: %v, obj: %v\n", this.GetCurrency(), obj.GetCurrency())
 	if this.GetCurrency() != obj.GetCurrency() {
