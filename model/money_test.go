@@ -45,20 +45,6 @@ func TestEquality(t *testing.T) {
 	})
 }
 
-func TestFrancMultiplication(t *testing.T) {
-	t.Run("フランの掛け算の結果が正しいこと", func(t *testing.T) {
-		five := GenerateFranc(5)
-
-		if !five.Times(2).Equals(GenerateFranc(10)) {
-			t.Error("5.times(2) == 10, expected true, result: false")
-		}
-
-		if !five.Times(3).Equals(GenerateFranc(15)) {
-			t.Error("5.times(3) == 15, expected: true, result: false")
-		}
-	})
-}
-
 func TestCurrency(t *testing.T) {
 	t.Run("ドルの場合はUSDであること", func(t *testing.T) {
 		dollar := GenerateDollar(5)
