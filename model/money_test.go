@@ -19,24 +19,24 @@ func TestMoneyMultiplication(t *testing.T) {
 
 func TestEquality(t *testing.T) {
 	t.Run("amountが等しければ等価と判定されること", func(t *testing.T) {
-		var five IDollar = NewDollar(5)
+		var five IDollar = GenerateDollar(5)
 
-		if !five.Equals(NewDollar(5)) {
+		if !five.Equals(GenerateDollar(5)) {
 			t.Errorf("expected true, result: false")
 		}
 
 	})
 
 	t.Run("amountが異なる場合は等価と判定されないこと", func(t *testing.T) {
-		var five IDollar = NewDollar(5)
+		var five IDollar = GenerateDollar(5)
 
-		if five.Equals(NewDollar(6)) {
+		if five.Equals(GenerateDollar(6)) {
 			t.Error("expected: false, result: true")
 		}
 	})
 
 	t.Run("ドルとフランの比較が正しいこと", func(t *testing.T) {
-		var dollar IDollar = NewDollar(5)
+		var dollar IDollar = GenerateDollar(5)
 		var franc IFranc = NewFranc(5)
 
 		if dollar.Equals(franc) {
