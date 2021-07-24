@@ -1,18 +1,19 @@
 package model
 
-type IDollar struct {
+type IDollar interface {
 	IMoney
+	Times(multiplier int) Dollar
 }
 type Dollar struct {
-	Money
+	*Money
 }
 
 func NewDollar(amount int) *Dollar {
 	return &Dollar{
-		Money{amount: amount},
+		&Money{amount: amount},
 	}
 }
 
-func (this *Dollar) Times(multiplier int) *Dollar {
+func (this Dollar) Times(multiplier int) *Dollar {
 	return NewDollar(this.amount * multiplier)
 }

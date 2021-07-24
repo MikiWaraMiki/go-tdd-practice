@@ -1,15 +1,18 @@
 package model
 
-type Object interface{}
 type IMoney interface {
-	Equals(money *Object) bool
+	Equals(money IMoney) bool
+	GetAmount() int
 }
 
 type Money struct {
 	amount int
 }
 
-func (this Money) Equals(obj Object) bool {
-	money := obj.(Money)
-	return this.amount == money.amount
+func (this Money) Equals(obj IMoney) bool {
+	return this.GetAmount() == obj.GetAmount()
+}
+
+func (this Money) GetAmount() int {
+	return this.amount
 }
