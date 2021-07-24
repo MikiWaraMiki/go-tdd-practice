@@ -17,21 +17,17 @@ type Money struct {
 	currency string
 }
 
-func GenerateDollar(amount int) *Dollar {
-	return &Dollar{
-		&Money{
-			amount:   amount,
-			currency: "USD",
-		},
+func GenerateDollar(amount int) *Money {
+	return &Money{
+		amount:   amount,
+		currency: "USD",
 	}
 }
 
-func GenerateFranc(amount int) *Franc {
-	return &Franc{
-		&Money{
-			amount:   amount,
-			currency: "CHF",
-		},
+func GenerateFranc(amount int) *Money {
+	return &Money{
+		amount:   amount,
+		currency: "CHF",
 	}
 }
 
