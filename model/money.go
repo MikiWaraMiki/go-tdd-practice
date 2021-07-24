@@ -13,6 +13,15 @@ type Money struct {
 	currency string
 }
 
+func GenerateDollar(amount int) *Dollar {
+	return &Dollar{
+		&Money{
+			amount:   amount,
+			currency: "Dollar",
+		},
+	}
+}
+
 func (this Money) Equals(obj IMoney) bool {
 	fmt.Printf("this: %v, obj: %v\n", this.GetCurrency(), obj.GetCurrency())
 	if this.GetCurrency() != obj.GetCurrency() {
