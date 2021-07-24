@@ -6,6 +6,7 @@ type Stringify interface {
 	ToString() string
 }
 type IMoney interface {
+	Experssion
 	Equals(money IMoney) bool
 	GetAmount() int
 	GetCurrency() string
