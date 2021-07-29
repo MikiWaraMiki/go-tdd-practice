@@ -97,8 +97,8 @@ func TestReduceMoneyDifferentCurrency(t *testing.T) {
 
 func TestMixedAddition(t *testing.T) {
 	t.Run("異なる通貨単位同士の足し算結果が正しいこと", func(t *testing.T) {
-		var fiveDollar Expression = GenerateDollar(5)
-		var tenFranc Expression = GenerateFranc(10)
+		var fiveDollar IMoney = GenerateDollar(5)
+		var tenFranc IMoney = GenerateFranc(10)
 
 		bank := NewBank()
 

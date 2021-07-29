@@ -1,25 +1,28 @@
 package model
 
 type Sum struct {
-	augend *Money
-	addend *Money
+	augend IMoney
+	addend IMoney
 }
 
-func NewSum(augend *Money, addend *Money) *Sum {
+func NewSum(augend IMoney, addend IMoney) *Sum {
 	return &Sum{
 		augend: augend,
 		addend: addend,
 	}
 }
 
-func (this Sum) GetAugend() *Money {
+func (this Sum) GetAugend() IMoney {
 	return this.augend
 }
 
-func (this Sum) GetAddend() *Money {
+func (this Sum) GetAddend() IMoney {
 	return this.addend
 }
 func (this Sum) Reduce(bank *Bank, to string) *Money {
-	result := this.GetAugend().GetAmount() + this.GetAddend().GetAmount()
+	reducedAugend := this.augend.Reduce(bank, to)
+	reducedAddend := this.addend.Reduce(bank, to)
+
+	result := reducedAugend.GetAmount() + reducedAddend.GetAmount()
 	return NewMoney(result, to)
 }
