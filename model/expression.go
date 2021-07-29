@@ -1,4 +1,4 @@
 package model
 
-type Experssion interface {
+type Expression interface {
 }
