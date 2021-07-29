@@ -68,16 +68,30 @@ func TestCurrency(t *testing.T) {
 	})
 }
 
-func TestSimpleAddition(t *testing.T) {
-	t.Run("同じ通貨単位の足し算の結果が正しいこと", func(t *testing.T) {
+func TestPlusReturnSum(t *testing.T) {
+	t.Run("PlusメソッドからSumオブジェクトが返却されること", func(t *testing.T) {
 		five := GenerateDollar(5)
-		var sum Experssion = five.Plus(five)
-		bank := NewBank()
-		reduced := bank.Reduce(sum, "USD")
+		sum := five.Plus(five)
 
-		expected := GenerateDollar(10)
-		if !reduced.Equals(expected) {
-			t.Errorf("expected: true, result: false")
+		if !sum.GetAugend().Equals(five) {
+			t.Error("Augend is invalid")
+		}
+
+		if !sum.GetAddend().Equals(five) {
+			t.Error("Addend is invalid")
+		}
+	})
+}
+
+func TestReduceSum(t *testing.T) {
+	t.Run("足し算の結果が正しいこと", func(t *testing.T) {
+		var sum Expression = NewSum(GenerateDollar(5), GenerateDollar(2))
+		bank := NewBank()
+
+		expected := GenerateDollar(7)
+
+		if result := bank.Reduce(sum, "USD"); !result.Equals(expected) {
+			t.Fatalf("result=%v, expected=%v", result.GetAmount(), expected.GetAmount())
 		}
 	})
 }
