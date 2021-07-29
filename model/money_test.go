@@ -80,3 +80,17 @@ func TestReduceSum(t *testing.T) {
 		}
 	})
 }
+
+func TestReduceMoneyDifferentCurrency(t *testing.T) {
+	t.Run("通貨単位が異なる足し算の結果が正しいこと", func(t *testing.T) {
+		bank := NewBank()
+
+		bank.AddRate("CHF", "USD", 2)
+
+		expected := GenerateDollar(1)
+
+		if result := bank.Reduce(GenerateFranc(2), "USD"); expected != result {
+			t.Fatalf("expected=%v %v, result=%v %v", expected.GetAmount(), expected.GetCurrency(), result.GetAmount(), result.GetCurrency())
+		}
+	})
+}
