@@ -9,8 +9,8 @@ type Pair struct {
 	to   string
 }
 
-func NewPair(from string, to string) *Pair {
-	return &Pair{
+func NewPair(from string, to string) Pair {
+	return Pair{
 		from: from,
 		to:   to,
 	}
