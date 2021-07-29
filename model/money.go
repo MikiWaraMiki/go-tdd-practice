@@ -65,3 +65,7 @@ func (this *Money) Plus(money *Money) *Sum {
 func (this Money) ToString() string {
 	return fmt.Sprintf("%v %v", this.amount, this.currency)
 }
+
+func (this Money) Reduce(to string) *Money {
+	return GenerateDollar(this.amount)
+}
