@@ -21,5 +21,5 @@ func (this Sum) GetAddend() *Money {
 }
 func (this Sum) Reduce(to string) *Money {
 	result := this.GetAugend().GetAmount() + this.GetAddend().GetAmount()
-	return GenerateDollar(result)
+	return NewMoney(result, to)
 }
