@@ -82,7 +82,7 @@ func TestReduceSum(t *testing.T) {
 }
 
 func TestReduceMoneyDifferentCurrency(t *testing.T) {
-	t.Run("通貨単位が異なる足し算の結果が正しいこと", func(t *testing.T) {
+	t.Run("通貨の変換結果が正しいこと", func(t *testing.T) {
 		bank := NewBank()
 
 		bank.AddRate("CHF", "USD", 2)
@@ -90,6 +90,24 @@ func TestReduceMoneyDifferentCurrency(t *testing.T) {
 		expected := GenerateDollar(1)
 
 		if result := bank.Reduce(GenerateFranc(2), "USD"); !expected.Equals(result) {
+			t.Fatalf("expected=%v %v, result=%v %v", expected.GetAmount(), expected.GetCurrency(), result.GetAmount(), result.GetCurrency())
+		}
+	})
+}
+
+func TestMixedAddition(t *testing.T) {
+	t.Run("異なる通貨単位同士の足し算結果が正しいこと", func(t *testing.T) {
+		var fiveDollar Expression = GenerateDollar(5)
+		var tenFranc Expression = GenerateFranc(10)
+
+		bank := NewBank()
+
+		bank.AddRate("CHF", "USD", 2)
+
+		expected := GenerateDollar(10)
+		result := bank.Reduce(fiveDollar.Plus(tenFranc), "USD")
+
+		if !result.Equals(expected) {
 			t.Fatalf("expected=%v %v, result=%v %v", expected.GetAmount(), expected.GetCurrency(), result.GetAmount(), result.GetCurrency())
 		}
 	})
