@@ -19,18 +19,19 @@ type Money struct {
 	currency string
 }
 
-func GenerateDollar(amount int) *Money {
+func NewMoney(amount int, currency string) *Money {
 	return &Money{
 		amount:   amount,
-		currency: "USD",
+		currency: currency,
 	}
 }
 
+func GenerateDollar(amount int) *Money {
+	return NewMoney(amount, "USD")
+}
+
 func GenerateFranc(amount int) *Money {
-	return &Money{
-		amount:   amount,
-		currency: "CHF",
-	}
+	return NewMoney(amount, "CHF")
 }
 
 func (this Money) Equals(obj IMoney) bool {
