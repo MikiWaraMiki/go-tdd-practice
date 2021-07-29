@@ -68,21 +68,6 @@ func TestCurrency(t *testing.T) {
 	})
 }
 
-func TestPlusReturnSum(t *testing.T) {
-	t.Run("PlusメソッドからSumオブジェクトが返却されること", func(t *testing.T) {
-		five := GenerateDollar(5)
-		sum := five.Plus(five)
-
-		if !sum.GetAugend().Equals(five) {
-			t.Error("Augend is invalid")
-		}
-
-		if !sum.GetAddend().Equals(five) {
-			t.Error("Addend is invalid")
-		}
-	})
-}
-
 func TestReduceSum(t *testing.T) {
 	t.Run("足し算の結果が正しいこと", func(t *testing.T) {
 		var sum Expression = NewSum(GenerateDollar(5), GenerateDollar(2))
