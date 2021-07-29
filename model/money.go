@@ -68,11 +68,6 @@ func (this Money) ToString() string {
 }
 
 func (this Money) Reduce(bank *Bank, to string) *Money {
-	var rate int
-	if this.currency == "CHF" && to == "USD" {
-		rate = 2
-	} else {
-		rate = 1
-	}
+	rate := bank.GetRate(this.currency, to)
 	return NewMoney(this.amount/rate, to)
 }
