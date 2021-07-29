@@ -11,7 +11,6 @@ type IMoney interface {
 	GetAmount() int
 	GetCurrency() string
 	Times(multiplier int) *Money
-	Plus(money IMoney) *Sum
 }
 
 type Money struct {
@@ -59,7 +58,7 @@ func (this Money) Times(multiplier int) *Money {
 	}
 }
 
-func (this *Money) Plus(money IMoney) *Sum {
+func (this Money) Plus(money Expression) *Sum {
 	return NewSum(this, money)
 }
 

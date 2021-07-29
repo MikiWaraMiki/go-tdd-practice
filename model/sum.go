@@ -5,7 +5,7 @@ type Sum struct {
 	addend Expression
 }
 
-func NewSum(augend IMoney, addend IMoney) *Sum {
+func NewSum(augend Expression, addend Expression) *Sum {
 	return &Sum{
 		augend: augend,
 		addend: addend,
@@ -25,4 +25,8 @@ func (this Sum) Reduce(bank *Bank, to string) *Money {
 
 	result := reducedAugend.GetAmount() + reducedAddend.GetAmount()
 	return NewMoney(result, to)
+}
+
+func (this Sum) Plus(addend Expression) *Sum {
+	return &Sum{}
 }
