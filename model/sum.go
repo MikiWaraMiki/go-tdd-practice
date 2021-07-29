@@ -1,8 +1,8 @@
 package model
 
 type Sum struct {
-	augend IMoney
-	addend IMoney
+	augend Expression
+	addend Expression
 }
 
 func NewSum(augend IMoney, addend IMoney) *Sum {
@@ -12,11 +12,11 @@ func NewSum(augend IMoney, addend IMoney) *Sum {
 	}
 }
 
-func (this Sum) GetAugend() IMoney {
+func (this Sum) GetAugend() Expression {
 	return this.augend
 }
 
-func (this Sum) GetAddend() IMoney {
+func (this Sum) GetAddend() Expression {
 	return this.addend
 }
 func (this Sum) Reduce(bank *Bank, to string) *Money {
