@@ -68,5 +68,11 @@ func (this Money) ToString() string {
 }
 
 func (this Money) Reduce(to string) *Money {
-	return GenerateDollar(this.amount)
+	var rate int
+	if this.currency == "CHF" && to == "USD" {
+		rate = 2
+	} else {
+		rate = 1
+	}
+	return NewMoney(this.amount/rate, to)
 }

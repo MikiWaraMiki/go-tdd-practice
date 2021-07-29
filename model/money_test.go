@@ -89,7 +89,7 @@ func TestReduceMoneyDifferentCurrency(t *testing.T) {
 
 		expected := GenerateDollar(1)
 
-		if result := bank.Reduce(GenerateFranc(2), "USD"); expected != result {
+		if result := bank.Reduce(GenerateFranc(2), "USD"); !expected.Equals(result) {
 			t.Fatalf("expected=%v %v, result=%v %v", expected.GetAmount(), expected.GetCurrency(), result.GetAmount(), result.GetCurrency())
 		}
 	})
