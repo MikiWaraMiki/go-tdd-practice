@@ -8,7 +8,7 @@ func NewBank() *Bank {
 }
 
 func (this Bank) Reduce(source Expression, to string) *Money {
-	return source.Reduce(to)
+	return source.Reduce(&this, to)
 }
 
 func (this Bank) AddRate(from string, to string, rate int) {

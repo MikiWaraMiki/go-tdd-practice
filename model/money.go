@@ -67,7 +67,7 @@ func (this Money) ToString() string {
 	return fmt.Sprintf("%v %v", this.amount, this.currency)
 }
 
-func (this Money) Reduce(to string) *Money {
+func (this Money) Reduce(bank *Bank, to string) *Money {
 	var rate int
 	if this.currency == "CHF" && to == "USD" {
 		rate = 2

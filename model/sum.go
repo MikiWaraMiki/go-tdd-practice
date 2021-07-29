@@ -19,7 +19,7 @@ func (this Sum) GetAugend() *Money {
 func (this Sum) GetAddend() *Money {
 	return this.addend
 }
-func (this Sum) Reduce(to string) *Money {
+func (this Sum) Reduce(bank *Bank, to string) *Money {
 	result := this.GetAugend().GetAmount() + this.GetAddend().GetAmount()
 	return NewMoney(result, to)
 }
