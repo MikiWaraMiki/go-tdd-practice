@@ -1,6 +1,7 @@
 package model
 
 type Bank struct {
+	rates map[Pair]int
 }
 
 func NewBank() *Bank {
