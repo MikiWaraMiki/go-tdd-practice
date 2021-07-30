@@ -112,3 +112,21 @@ func TestMixedAddition(t *testing.T) {
 		}
 	})
 }
+
+func TestSumTimes(t *testing.T) {
+	t.Run("掛け算の結果が正しいこと", func(t *testing.T) {
+		var fiveDollar Expression = GenerateDollar(5)
+		var tenFranc Expression = GenerateFranc(10)
+
+		bank := NewBank()
+
+		bank.AddRate("CHF", "USD", 2)
+
+		expected := GenerateDollar(20)
+		result := bank.Reduce(fiveDollar.Plus(tenFranc), "USD").Times(2)
+
+		if !result.Equals(expected) {
+			t.Fatalf("expected=%v %v, result=%v %v", expected.GetAmount(), expected.GetCurrency(), result.GetAmount(), result.GetCurrency())
+		}
+	})
+}
