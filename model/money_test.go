@@ -4,19 +4,6 @@ import (
 	"testing"
 )
 
-func TestMoneyMultiplication(t *testing.T) {
-	t.Run("ドルの掛け算の結果が正しいこと", func(t *testing.T) {
-		var five IMoney = GenerateDollar(5)
-		if !five.Times(3).(IMoney).Equals(GenerateDollar(15)) {
-			t.Fatalf("expected: true, result: false")
-		}
-
-		if !five.Times(2).(IMoney).Equals(GenerateDollar(10)) {
-			t.Fatalf("expected: true, result: false")
-		}
-	})
-}
-
 func TestEquality(t *testing.T) {
 	t.Run("amountが等しければ等価と判定されること", func(t *testing.T) {
 		var five IMoney = GenerateDollar(5)
