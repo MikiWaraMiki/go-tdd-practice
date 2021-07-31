@@ -30,3 +30,9 @@ func (this Sum) Reduce(bank *Bank, to string) *Money {
 func (this Sum) Plus(addend Expression) *Sum {
 	return &Sum{}
 }
+
+func (this Sum) Times(multiplier int) Expression {
+	var augendTimes Expression = this.augend.Times(multiplier)
+	var addendTimes Expression = this.addend.Times(multiplier)
+	return NewSum(augendTimes, addendTimes)
+}

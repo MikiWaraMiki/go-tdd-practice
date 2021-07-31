@@ -7,11 +7,11 @@ import (
 func TestMoneyMultiplication(t *testing.T) {
 	t.Run("ドルの掛け算の結果が正しいこと", func(t *testing.T) {
 		var five IMoney = GenerateDollar(5)
-		if !five.Times(3).Equals(GenerateDollar(15)) {
+		if !five.Times(3).(IMoney).Equals(GenerateDollar(15)) {
 			t.Fatalf("expected: true, result: false")
 		}
 
-		if !five.Times(2).Equals(GenerateDollar(10)) {
+		if !five.Times(2).(IMoney).Equals(GenerateDollar(10)) {
 			t.Fatalf("expected: true, result: false")
 		}
 	})
@@ -123,7 +123,7 @@ func TestSumTimes(t *testing.T) {
 		bank.AddRate("CHF", "USD", 2)
 
 		expected := GenerateDollar(20)
-		result := bank.Reduce(fiveDollar.Plus(tenFranc), "USD").Times(2)
+		result := bank.Reduce(fiveDollar.Plus(tenFranc), "USD").Times(2).(IMoney)
 
 		if !result.Equals(expected) {
 			t.Fatalf("expected=%v %v, result=%v %v", expected.GetAmount(), expected.GetCurrency(), result.GetAmount(), result.GetCurrency())
